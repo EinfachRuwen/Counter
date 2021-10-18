@@ -120,6 +120,7 @@
 						android:textSize="12sp"
 						android:textStyle="bold"
 						android:textColor="#FFFFFF"/>
+
 					<TextView
 						android:id="@+id/textview4"
 						android:layout_width="wrap_content"
@@ -128,9 +129,9 @@
 						android:paddingTop="1dp"
 						android:paddingRight="8dp"
 						android:paddingBottom="1dp"
-						android:text="v1.0"
-						android:textSize="12sp"
-						android:textColor="#E0E0E0"/>
+						android:text="v1.1"
+						android:textColor="#E0E0E0"
+						android:textSize="12sp" />
 				</LinearLayout>
 			</LinearLayout>
 			<LinearLayout
@@ -170,6 +171,7 @@
 						android:textSize="12sp"
 						android:textStyle="bold"
 						android:textColor="#FFFFFF"/>
+
 					<TextView
 						android:id="@+id/textview6"
 						android:layout_width="wrap_content"
@@ -178,9 +180,9 @@
 						android:paddingTop="1dp"
 						android:paddingRight="8dp"
 						android:paddingBottom="1dp"
-						android:text="https://github.com/byZeroOfficial/Counter"
-						android:textSize="12sp"
-						android:textColor="#E0E0E0"/>
+						android:text="https://counter.byzero.dev/github"
+						android:textColor="#E0E0E0"
+						android:textSize="12sp" />
 				</LinearLayout>
 			</LinearLayout>
 			<LinearLayout

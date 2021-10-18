@@ -125,7 +125,7 @@ public class SettingsActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View _view) {
 				i.setAction(Intent.ACTION_VIEW);
-				i.setData(Uri.parse("https://github.com/byZeroOfficial/Counter"));
+				i.setData(Uri.parse("https://counter.byzero.dev/github"));
 				startActivity(i);
 			}
 		});
@@ -134,7 +134,7 @@ public class SettingsActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View _view) {
 				i.setAction(Intent.ACTION_VIEW);
-				i.setData(Uri.parse("https://github.com/byZeroOfficial/Counter/issues"));
+				i.setData(Uri.parse("https://counter.byzero.dev/issue"));
 				startActivity(i);
 			}
 		});
