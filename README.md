@@ -13,7 +13,7 @@
 
 ## Install
 
-Download and install the [.apk-File](https://github.com/byZeroOfficial/Counter/releases/ or install the App via Play Store
+Download and install the [.apk-File](https://github.com/byZeroOfficial/Counter/releases/) or install the App via Play Store
 
 ## Author
 
