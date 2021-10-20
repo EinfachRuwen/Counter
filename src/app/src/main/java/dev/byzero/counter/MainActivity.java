@@ -95,6 +95,69 @@ public class MainActivity extends AppCompatActivity {
 		reset = (Button) findViewById(R.id.reset);
 		settings = getSharedPreferences("settings", Activity.MODE_PRIVATE);
 		
+		linear5.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View _view) {
+				_switchtoset();
+			}
+		});
+		
+		linear6.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View _view) {
+				_switchtoset();
+			}
+		});
+		
+		linear7.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View _view) {
+				_switchtoset();
+			}
+		});
+		
+		linear8.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View _view) {
+				_switchtoset();
+			}
+		});
+		
+		linear9.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View _view) {
+				_switchtoset();
+			}
+		});
+		
+		thousand.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View _view) {
+				_switchtoset();
+			}
+		});
+		
+		hundred.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View _view) {
+				_switchtoset();
+			}
+		});
+		
+		ten.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View _view) {
+				_switchtoset();
+			}
+		});
+		
+		one.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View _view) {
+				_switchtoset();
+			}
+		});
+		
 		plus.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View _view) {
@@ -415,6 +478,12 @@ public class MainActivity extends AppCompatActivity {
 			snackbar.setDuration((int)_duration*1000);
 		}
 		snackbar.show();
+	}
+	
+	
+	private void _switchtoset () {
+		i.setClass(getApplicationContext(), SetnumberActivity.class);
+		startActivity(i);
 	}
 	
 	
