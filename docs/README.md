@@ -5,3 +5,5 @@ Visit a Page:
 - [Download](./download)
 - [GitHub](./github)
 - [Issue / Bug](./issue)
+
+- [Imprint](https://byzero.dev/imprint)
