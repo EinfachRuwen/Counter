@@ -5,6 +5,7 @@
 		<item	name="colorAccent">@color/colorAccent</item>
 		<item	name="colorControlHighlight">@color/colorControlHighlight</item>
 		<item	name="colorControlNormal">@color/colorControlNormal</item>
+		<item name="android:statusBarColor">#000000</item>
 	</style>
 	<style	name="AppTheme.FullScreen"	parent="AppTheme">
 		<item	name="android:windowFullscreen">true</item>
