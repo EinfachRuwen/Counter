@@ -12,8 +12,11 @@
 > The name explains everything, that you need to know.
 
 ## Install
+### Play Store
+<p><a href="https://play.google.com/store/apps/details?id=dev.byzero.counter&amp;pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" width="202" height="78" /></a></p>
 
-Download and install the [.apk-File](https://github.com/byZeroOfficial/Counter/releases/) or install the App via Play Store
+### Direct
+1. Download and install the [.apk-File](https://github.com/byZeroOfficial/Counter/releases/) 
 
 ## Author
 
