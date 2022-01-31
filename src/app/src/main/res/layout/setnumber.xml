@@ -21,94 +21,104 @@
 		android:layout_height="match_parent"
 		android:orientation="vertical"
 		app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
 		<LinearLayout
 			android:id="@+id/linear15"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:padding="8dp"
-			android:background="#444444"
-			android:orientation="vertical">
+			android:background="#000000"
+			android:orientation="vertical"
+			android:padding="8dp">
+
 			<LinearLayout
 				android:id="@+id/linear16"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:padding="8dp"
 				android:gravity="center_horizontal|center_vertical"
-				android:orientation="horizontal">
+				android:orientation="horizontal"
+				android:padding="8dp">
+
 				<TextView
 					android:id="@+id/textview7"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:padding="8dp"
 					android:text="Set Count"
+					android:textColor="#FFFFFF"
 					android:textSize="18sp"
-					android:textStyle="bold"
-					android:textColor="#FFFFFF"/>
+					android:textStyle="bold" />
 			</LinearLayout>
+
 			<LinearLayout
 				android:id="@+id/linear19"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:padding="8dp"
 				android:gravity="center_horizontal|center_vertical"
-				android:orientation="horizontal">
+				android:orientation="horizontal"
+				android:padding="8dp">
+
 				<EditText
 					android:id="@+id/t"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:padding="8dp"
-					android:textSize="12sp"
-					android:textColor="#FFFFFF"
 					android:hint="TH"
+					android:inputType="numberSigned"
+					android:padding="8dp"
+					android:textColor="#FFFFFF"
 					android:textColorHint="#CFD8DC"
-					android:inputType="numberSigned"/>
+					android:textSize="12sp" />
+
 				<EditText
 					android:id="@+id/edittext1"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:padding="8dp"
-					android:textSize="12sp"
-					android:textColor="#FFFFFF"
 					android:hint="HU"
+					android:inputType="numberSigned"
+					android:padding="8dp"
+					android:textColor="#FFFFFF"
 					android:textColorHint="#CFD8DC"
-					android:inputType="numberSigned"/>
+					android:textSize="12sp" />
+
 				<EditText
 					android:id="@+id/edittext2"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:padding="8dp"
-					android:textSize="12sp"
-					android:textColor="#FFFFFF"
 					android:hint="TN"
+					android:inputType="numberSigned"
+					android:padding="8dp"
+					android:textColor="#FFFFFF"
 					android:textColorHint="#CFD8DC"
-					android:inputType="numberSigned"/>
+					android:textSize="12sp" />
+
 				<EditText
 					android:id="@+id/edittext3"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:padding="8dp"
-					android:textSize="12sp"
-					android:textColor="#FFFFFF"
 					android:hint="ONE"
+					android:inputType="numberSigned"
+					android:padding="8dp"
+					android:textColor="#FFFFFF"
 					android:textColorHint="#CFD8DC"
-					android:inputType="numberSigned"/>
+					android:textSize="12sp" />
 			</LinearLayout>
+
 			<LinearLayout
 				android:id="@+id/linear20"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:padding="8dp"
 				android:gravity="center_horizontal|center_vertical"
-				android:orientation="horizontal">
+				android:orientation="horizontal"
+				android:padding="8dp">
+
 				<Button
 					android:id="@+id/button1"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:background="#373737"
 					android:padding="8dp"
-					android:background="#616161"
 					android:text="Send"
-					android:textSize="12sp"
-					android:textColor="#FFFFFF"/>
+					android:textColor="#FFFFFF"
+					android:textSize="12sp" />
 			</LinearLayout>
 		</LinearLayout>
 	</LinearLayout>

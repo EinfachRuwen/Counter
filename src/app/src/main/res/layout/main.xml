@@ -21,143 +21,159 @@
 		android:layout_height="match_parent"
 		android:orientation="vertical"
 		app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
 		<LinearLayout
 			android:id="@+id/linear4"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:padding="8dp"
-			android:background="#444444"
+			android:background="#000000"
 			android:gravity="center_horizontal|center_vertical"
-			android:orientation="vertical">
+			android:orientation="vertical"
+			android:padding="8dp">
+
 			<LinearLayout
 				android:id="@+id/linear5"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:padding="8dp"
 				android:gravity="center_horizontal|center_vertical"
-				android:orientation="horizontal">
+				android:orientation="horizontal"
+				android:padding="8dp">
+
 				<LinearLayout
 					android:id="@+id/linear6"
 					android:layout_width="75dp"
 					android:layout_height="150dp"
-					android:padding="8dp"
 					android:background="@drawable/counter_bg_1"
 					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
+					android:orientation="vertical"
+					android:padding="8dp">
+
 					<TextView
 						android:id="@+id/thousand"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:padding="8dp"
 						android:text="0"
-						android:textSize="70sp"
-						android:textColor="#FFFFFF"/>
+						android:textColor="#FFFFFF"
+						android:textSize="70sp" />
 				</LinearLayout>
+
 				<LinearLayout
 					android:id="@+id/linear7"
 					android:layout_width="75dp"
 					android:layout_height="150dp"
-					android:padding="8dp"
 					android:background="@drawable/counter_bg_1"
 					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
+					android:orientation="vertical"
+					android:padding="8dp">
+
 					<TextView
 						android:id="@+id/hundred"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:padding="8dp"
 						android:gravity="left"
+						android:padding="8dp"
 						android:text="0"
-						android:textSize="70sp"
-						android:textColor="#FFFFFF"/>
+						android:textColor="#FFFFFF"
+						android:textSize="70sp" />
 				</LinearLayout>
+
 				<LinearLayout
 					android:id="@+id/linear8"
 					android:layout_width="75dp"
 					android:layout_height="150dp"
-					android:padding="8dp"
 					android:background="@drawable/counter_bg_1"
 					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
+					android:orientation="vertical"
+					android:padding="8dp">
+
 					<TextView
 						android:id="@+id/ten"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:padding="8dp"
 						android:gravity="left"
+						android:padding="8dp"
 						android:text="0"
-						android:textSize="70sp"
-						android:textColor="#FFFFFF"/>
+						android:textColor="#FFFFFF"
+						android:textSize="70sp" />
 				</LinearLayout>
+
 				<LinearLayout
 					android:id="@+id/linear9"
 					android:layout_width="75dp"
 					android:layout_height="150dp"
-					android:padding="8dp"
 					android:background="@drawable/counter_bg_1"
 					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
+					android:orientation="vertical"
+					android:padding="8dp">
+
 					<TextView
 						android:id="@+id/one"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:padding="8dp"
 						android:gravity="left"
+						android:padding="8dp"
 						android:text="0"
-						android:textSize="70sp"
-						android:textColor="#FFFFFF"/>
+						android:textColor="#FFFFFF"
+						android:textSize="70sp" />
 				</LinearLayout>
 			</LinearLayout>
+
 			<LinearLayout
 				android:id="@+id/linear11"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:padding="8dp"
 				android:gravity="center_horizontal|center_vertical"
-				android:orientation="horizontal">
+				android:orientation="horizontal"
+				android:padding="8dp">
+
 				<Button
 					android:id="@+id/plus"
 					android:layout_width="50dp"
 					android:layout_height="wrap_content"
-					android:padding="8dp"
-					android:background="#616161"
+					android:background="#373737"
 					android:gravity="center_horizontal|center_vertical"
+					android:padding="8dp"
 					android:text="+"
-					android:textSize="12sp"
-					android:textColor="#FFFFFF"/>
+					android:textColor="#FFFFFF"
+					android:textSize="12sp" />
+
 				<LinearLayout
 					android:id="@+id/linear13"
 					android:layout_width="5dp"
 					android:layout_height="match_parent"
-					android:padding="8dp"
-					android:orientation="vertical"/>
+					android:orientation="vertical"
+					android:padding="8dp" />
+
 				<Button
 					android:id="@+id/minus"
 					android:layout_width="50dp"
 					android:layout_height="wrap_content"
-					android:padding="8dp"
-					android:background="#616161"
+					android:background="#373737"
 					android:gravity="center_horizontal|center_vertical"
+					android:padding="8dp"
 					android:text="-"
-					android:textSize="12sp"
-					android:textColor="#FFFFFF"/>
+					android:textColor="#FFFFFF"
+					android:textSize="12sp" />
 			</LinearLayout>
+
 			<LinearLayout
 				android:id="@+id/linear12"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:padding="8dp"
 				android:gravity="center_horizontal|center_vertical"
-				android:orientation="horizontal">
+				android:orientation="horizontal"
+				android:padding="8dp">
+
 				<Button
 					android:id="@+id/reset"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:background="#373737"
 					android:padding="8dp"
-					android:background="#616161"
 					android:text="RESET"
-					android:textSize="12sp"
-					android:textColor="#FFFFFF"/>
+					android:textColor="#FFFFFF"
+					android:textSize="12sp" />
 			</LinearLayout>
 		</LinearLayout>
 	</LinearLayout>
