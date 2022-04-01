@@ -1,0 +1,7 @@
+Mit <i>Counter</i> kannst du ganz einfach zählen, in dem du durch + und - die Zahl ändern kannst. Die App ist in einem Flip Clock Design.
+
+Was kannst du mit der Counter-App tun?
+
+- Zählen
+- Gezählten Wert ändern
+- Gezählten Wert zurücksetzen
