@@ -1,0 +1,7 @@
+<i>Counter</i> is an app for counting, by clicking + and - you can increase or decrease the number. Counter uses a flip clock design.
+
+What can you do with Counter?
+
+- Count
+- Change Count
+- Reset Count
