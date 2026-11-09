@@ -12,5 +12,8 @@ window.COUNTER_CONFIG = {
   sourceUrl: "https://github.com/EinfachRuwen/Counter",
   issuesUrl: "https://github.com/EinfachRuwen/Counter/issues",
   websiteUrl: "https://byzero.dev",
+  // "Back from Zero" – Übersicht deiner wiederbelebten Projekte (leer = nur Text)
+  revivalUrl: "https://github.com/EinfachRuwen/Counter#-back-from-zero",
+
   imprintUrl: "https://byzero.dev/imprint"
 };

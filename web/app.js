@@ -9,7 +9,7 @@
   const VERSION = "2.0.0";
   const STORAGE_KEY = "counter.web.v2";
   const CONFIG = Object.assign({
-    author: "byZero", donateUrl: "", sourceUrl: "", issuesUrl: "", websiteUrl: "", imprintUrl: ""
+    author: "byZero", donateUrl: "", revivalUrl: "", sourceUrl: "", issuesUrl: "", websiteUrl: "", imprintUrl: ""
   }, window.COUNTER_CONFIG || {});
 
   const $ = (sel, root = document) => root.querySelector(sel);
@@ -26,7 +26,11 @@
       setCount: "Zahl setzen", plus: "Plus", minus: "Minus", reset: "RESET",
       kbdHint: "Tastatur: ↑ / + zählen · ↓ / − zurück · R Reset · S speichern",
       setHelp: "Tippe die Ziffern ein – oder füge eine ganze Zahl ein.", apply: "Übernehmen",
-      secView: "Ansicht", seniorMode: "Seniorenmodus", seniorModeSub: "Größere Tasten und größere Schrift",
+      secView: "Ansicht", theme: "Design", themeClassic: "Klassisch", themeBlack: "Black (Tim-Edition)",
+      thanks: "Danke",
+      thanksText: "An Tim Trayler – für ihn entstand 2022 die Black-Version, inklusive seiner schwarzen Statusleiste. Und an IzzySoft für die F-Droid-Metadaten.",
+      revival: "Teil von „Back from Zero“ – alte Projekte, wieder zum Leben erweckt",
+      seniorMode: "Seniorenmodus", seniorModeSub: "Größere Tasten und größere Schrift",
       btnSize: "Tastengröße", fontSize: "Schriftgröße der Tasten",
       sizeL: "Groß", sizeXL: "Sehr groß", sizeXXL: "Riesig",
       digits: "Anzahl der Stellen",
@@ -67,7 +71,8 @@
           "App-Info-Seite, Spenden-Button und Sprachwahl (Deutsch/English)",
           "3 bis 6 Stellen, echte Fallblatt-Animation, Taste gedrückt halten zum schnellen Zählen",
           "Tastatur-Steuerung, Vibration, Klickgeräusch und „Bildschirm anlassen“",
-          "Reset mit „Rückgängig“"
+          "Reset mit „Rückgängig“",
+          "Die Black-Version für Tim ist zurück – als Design zum Umschalten"
         ]],
         ["Fehlerbehebungen", [
           "Reset und Überlauf (9999 → 0) wurden falsch gespeichert, weil vor der Animation gesichert wurde",
@@ -77,7 +82,10 @@
           "Hinweis „Loaded the state …“ erschien bei jedem Start",
           "Versionsanzeige zeigte v1.1 statt der aktuellen Version"
         ]],
-        ["1.x · Android (2021)", [
+        ["1.3 · Black-Version (2022)", [
+          "Sonderversion für Tim: komplett schwarz, mit schwarzer Statusleiste von Tim Trayler"
+        ]],
+        ["1.x · Android (2021–2022)", [
           "Die Original-App, gebaut mit Sketchware: Zählen, Zahl setzen, Reset und Seniorenmodus"
         ]]
       ]
@@ -88,7 +96,11 @@
       setCount: "Set count", plus: "Plus", minus: "Minus", reset: "RESET",
       kbdHint: "Keyboard: ↑ / + count · ↓ / − back · R reset · S save",
       setHelp: "Type the digits – or paste a whole number.", apply: "Apply",
-      secView: "View", seniorMode: "Senior mode", seniorModeSub: "Bigger buttons and bigger text",
+      secView: "View", theme: "Theme", themeClassic: "Classic", themeBlack: "Black (Tim edition)",
+      thanks: "Thanks",
+      thanksText: "To Tim Trayler – the Black version was made for him in 2022, including his black status bar. And to IzzySoft for the F-Droid metadata.",
+      revival: "Part of “Back from Zero” – old projects, brought back to life",
+      seniorMode: "Senior mode", seniorModeSub: "Bigger buttons and bigger text",
       btnSize: "Button size", fontSize: "Button font size",
       sizeL: "Large", sizeXL: "Extra large", sizeXXL: "Huge",
       digits: "Number of digits",
@@ -129,7 +141,8 @@
           "App info page, donate button and language choice (Deutsch/English)",
           "3 to 6 digits, real split-flap animation, hold a button to count fast",
           "Keyboard controls, vibration, click sound and “keep screen on”",
-          "Reset with “Undo”"
+          "Reset with “Undo”",
+          "The Black version for Tim is back – as a switchable theme"
         ]],
         ["Bug fixes", [
           "Reset and overflow (9999 → 0) were saved incorrectly because saving happened before the animation",
@@ -139,7 +152,10 @@
           "“Loaded the state …” message popped up on every start",
           "Version info showed v1.1 instead of the current version"
         ]],
-        ["1.x · Android (2021)", [
+        ["1.3 · Black version (2022)", [
+          "Special version for Tim: all black, with a black status bar by Tim Trayler"
+        ]],
+        ["1.x · Android (2021–2022)", [
           "The original app built with Sketchware: count, set count, reset and senior mode"
         ]]
       ]
@@ -152,7 +168,7 @@
   const DEFAULTS = {
     value: 0, digits: 4,
     senior: false, btnSize: "xl", fontSize: "xl",
-    vibrate: true, sound: false, wakeLock: false, lang: "auto",
+    vibrate: true, sound: false, wakeLock: false, lang: "auto", theme: "classic",
     results: []
   };
   let storageOk = true;
@@ -173,6 +189,7 @@
     if (!["l", "xl", "xxl"].includes(out.btnSize)) out.btnSize = DEFAULTS.btnSize;
     if (!["l", "xl", "xxl"].includes(out.fontSize)) out.fontSize = DEFAULTS.fontSize;
     if (!["auto", "de", "en"].includes(out.lang)) out.lang = "auto";
+    if (!["classic", "black"].includes(out.theme)) out.theme = "classic";
     for (const k of ["senior", "vibrate", "sound", "wakeLock"]) out[k] = !!out[k];
     out.results = Array.isArray(out.results) ? out.results.filter(r => r && Number.isFinite(+r.value)).map(r => ({
       id: String(r.id || uid()), value: clampInt(r.value, 0, 999999), digits: [3, 4, 5, 6].includes(+r.digits) ? +r.digits : 4,
@@ -644,6 +661,10 @@
     const b = document.body.classList;
     ["senior", "btn-l", "btn-xl", "btn-xxl", "fs-l", "fs-xl", "fs-xxl"].forEach(c => b.remove(c));
     if (state.senior) b.add("senior", "btn-" + state.btnSize, "fs-" + state.fontSize);
+    b.toggle("theme-black", state.theme === "black");
+    const color = state.theme === "black" ? "#000000" : "#444444";
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", color);
   }
   function syncSettingsUI() {
     $("#opt-senior").checked = state.senior;
@@ -732,6 +753,7 @@
     $("#info-imprint-wrap").hidden = !CONFIG.imprintUrl;
     if (CONFIG.imprintUrl) $("#info-imprint").href = CONFIG.imprintUrl;
     $("#info-author").textContent = CONFIG.author;
+    if (CONFIG.revivalUrl) $("#info-revival").href = CONFIG.revivalUrl; else $("#info-revival").removeAttribute("href");
     if (!navigator.vibrate) $("#item-vibrate").hidden = true;
     if (!("wakeLock" in navigator)) $("#item-wakelock").hidden = true;
   }

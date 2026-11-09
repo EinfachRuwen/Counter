@@ -17,6 +17,9 @@
   --text-3: #BDBDBD;
   --ripple: rgba(255,255,255,.12);
   --surface: #4d4d4d;
+  --page-alt: #444444;        /* Hintergrund Einstellungen/Unterseiten */
+  --fab: #444444;
+  --card: rgba(0,0,0,.16);
   --focus: #90CAF9;
 
   /* Zähler-Kacheln */
@@ -32,6 +35,24 @@
 
   color-scheme: dark;
 }
+
+/* Black-Version (2022, Sonderversion für Tim – Farben aus dem Branch "black") */
+body.theme-black {
+  --primary: #000000;
+  --button: #373737;
+  --button-hover: #424242;
+  --button-active: #4f4f4f;
+  --page-alt: #101010;
+  --fab: #1c1c1c;
+  --card: rgba(255,255,255,.06);
+}
+body.theme-black .toolbar { box-shadow: 0 1px 0 #1f1f1f; }
+body.theme-black .fab { box-shadow: 0 0 0 1px #2e2e2e, 0 6px 10px rgba(0,0,0,.6); }
+body.theme-black .fab:hover { background: #262626; }
+body.theme-black .set-inputs input { background: rgba(255,255,255,.06); }
+body.theme-black .dialog { background: #1e1e1e; }
+body.theme-black .snackbar { background: #262626; }
+body.theme-black .info-logo { background: #1a1a1a; }
 
 /* Seniorenmodus – Tastengröße */
 body.btn-l   { --btn-w: 110px; --btn-h: 80px; }
@@ -49,6 +70,7 @@ html, body { height: 100%; }
 body {
   margin: 0;
   background: var(--primary);
+  transition: background-color .2s;
   color: var(--text);
   font-family: Roboto, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   font-size: 15px;
@@ -95,7 +117,7 @@ a { color: inherit; }
 
 .views { flex: 1; display: flex; flex-direction: column; position: relative; }
 .view { flex: 1; display: flex; flex-direction: column; animation: view-in .18s ease-out; }
-.view-scroll { padding-bottom: 96px; }
+.view-scroll { padding-bottom: 96px; background: var(--page-alt); }
 @keyframes view-in { from { opacity: 0; transform: translateY(6px); } }
 
 /* ---------- Zähler ---------- */
@@ -197,7 +219,7 @@ a { color: inherit; }
   position: fixed; z-index: 9;
   right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom));
   width: 56px; height: 56px; border: 0; border-radius: 50%;
-  background: var(--primary); color: #fff;
+  background: var(--fab); color: #fff;
   display: grid; place-items: center; cursor: pointer;
   box-shadow: 0 3px 5px -1px rgba(0,0,0,.3), 0 6px 10px rgba(0,0,0,.22), 0 1px 18px rgba(0,0,0,.18);
   transition: box-shadow .15s, background-color .15s;
@@ -323,7 +345,7 @@ a { color: inherit; }
 .info-tagline { margin: 6px 0 20px; color: var(--text-3); font-size: 13px; }
 .info-card {
   width: 100%; margin: 6px 0; padding: 14px 16px;
-  background: rgba(0,0,0,.16); border-radius: 8px; text-align: left; line-height: 1.55; font-size: 14px; color: var(--text-2);
+  background: var(--card); border-radius: 8px; text-align: left; line-height: 1.55; font-size: 14px; color: var(--text-2);
 }
 .info-card p { margin: 0 0 8px; }
 .info-card p:last-child { margin-bottom: 0; }
