@@ -5,7 +5,8 @@
 <h1 align="center">Counter</h1>
 
 <p align="center">
-  <b>Part of <a href="#-back-from-zero">Back from Zero</a></b> · old byZero projects, switched back on.
+  <b>Part of <a href="https://bf0.by0.link">Back from Zero</a></b> · old byZero projects, switched back on.<br>
+  <a href="https://counter.bf0.by0.link"><b>▶ Open it at counter.bf0.by0.link</b></a>
 </p>
 
 <p align="center">
@@ -14,7 +15,7 @@
   <img src="brand/screenshots/web-black.png" alt="Counter in the Black design" width="220">
 </p>
 
-## ✨ Back from Zero
+## ✨ [Back from Zero](https://bf0.by0.link)
 
 Between 2021 and 2022, byZero built a lot of things, between 13 and 14 years old and mostly by trial and error.
 Some went offline, some were never finished. **Back from Zero** brings them back:
@@ -22,9 +23,9 @@ the original look, the original quirks, and finally the features from the old id
 
 | | Project | Then | Now |
 |---|---|---|---|
-| 🍩 | **[ZeroBot](https://github.com/EinfachRuwen/ZeroBot)** | A Discord bot for one server | A playable time capsule at [zerobot.by0.link](https://zerobot.by0.link) |
-| 🧱 | **[WebsiteGenerator](https://github.com/WebsiteGenerator/WebsiteGenerator)** | A Python script in the terminal | A [generator in the browser](https://websitegenerator.github.io/WebsiteGenerator/) |
-| 🔢 | **Counter** | An Android app, clicked together in Sketchware | A web app, right here |
+| 🍩 | **[ZeroBot](https://github.com/EinfachRuwen/ZeroBot)** | A Discord bot for one server | A playable time capsule at [zerobot.bf0.by0.link](https://zerobot.bf0.by0.link) |
+| 🧱 | **[WebsiteGenerator](https://github.com/WebsiteGenerator/WebsiteGenerator)** | A Python script in the terminal | A [generator in the browser](https://websitegenerator.bf0.by0.link) |
+| 🔢 | **Counter** | An Android app, clicked together in Sketchware | A [web app](https://counter.bf0.by0.link), right here |
 
 ## 🔢 Counter
 

@@ -14,7 +14,7 @@ plus die Funktionen von der alten Ideenliste.
    - **Build output directory:** `web`
 4. *Save and Deploy* – danach geht jeder Push auf `main` automatisch online,
    andere Branches bekommen eine eigene Vorschau-URL.
-5. Eigene Domain (z. B. `counter.byzero.dev`) unter *Custom domains* eintragen.
+5. Eigene Domain (`counter.bf0.by0.link`) unter *Custom domains* eintragen.
 
 ## Anpassen
 

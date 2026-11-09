@@ -1,6 +1,6 @@
 /* Counter – Service Worker: macht die App offline-fähig.
    Bei jeder Änderung an den Dateien CACHE-Version erhöhen. */
-const CACHE = "counter-v2.0.1";
+const CACHE = "counter-v2.0.2";
 const ASSETS = [
   "./", "index.html", "styles.css", "app.js", "config.js", "manifest.webmanifest", "LICENSE.txt",
   "favicon.ico", "icons/favicon-48.png", "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png",
