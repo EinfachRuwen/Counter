@@ -11,6 +11,9 @@
 
 > The name explains everything, that you need to know.
 
+## Web-Version 🌐
+Counter gibt es jetzt auch im Browser – im gleichen Flip-Clock-Design, mit gespeicherten Ergebnissen, Seniorenmodus und Offline-Unterstützung. Quellcode und Anleitung für Cloudflare Pages: [`web/`](./web).
+
 ## Install
 ### Play Store
 <p><a href="https://play.google.com/store/apps/details?id=dev.byzero.counter&amp;pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" width="202" height="78" /></a></p>

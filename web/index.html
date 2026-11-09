@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Counter</title>
+  <meta name="description" content="Counter – ein Zähler im Rolodex-/Flip-Clock-Design. Die Web-Version der Android-App von 2021.">
+  <meta name="theme-color" content="#444444">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:title" content="Counter">
+  <meta property="og:description" content="Ein Zähler im Flip-Clock-Design – Nostalgie, revived.">
+  <meta property="og:image" content="img/og.jpg">
+  <meta property="og:type" content="website">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="icons/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preload" href="fonts/roboto-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <!-- Icon-Sprite (Material-Stil, passend zu den Original-Icons) -->
+  <svg width="0" height="0" class="sprite" aria-hidden="true">
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.48.48 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.48.48 0 0 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32a.48.48 0 0 0-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/></symbol>
+    <symbol id="i-save" viewBox="0 0 24 24"><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15-5-2.18L7 18V5h10v13z"/><path d="M11 7h2v2h2v2h-2v2h-2v-2H9V9h2z"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.95 8.95 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></symbol>
+    <symbol id="i-web" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.93 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.99 7.99 0 0 1 5.08 16zm2.95-8H5.08a7.99 7.99 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></symbol>
+    <symbol id="i-vibrate" viewBox="0 0 24 24"><path d="M0 15h2V9H0v6zm3 2h2V7H3v10zm19-8v6h2V9h-2zm-3 8h2V7h-2v10zM16.5 3h-9C6.67 3 6 3.67 6 4.5v15c0 .83.67 1.5 1.5 1.5h9c.83 0 1.5-.67 1.5-1.5v-15c0-.83-.67-1.5-1.5-1.5zM16 19H8V5h8v14z"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM2 13h2a1 1 0 0 0 0-2H2a1 1 0 0 0 0 2zm18 0h2a1 1 0 0 0 0-2h-2a1 1 0 0 0 0 2zM11 2v2a1 1 0 0 0 2 0V2a1 1 0 0 0-2 0zm0 18v2a1 1 0 0 0 2 0v-2a1 1 0 0 0-2 0zM5.99 4.58a1 1 0 0 0-1.41 1.41l1.06 1.06a1 1 0 0 0 1.41-1.41L5.99 4.58zm12.37 12.37a1 1 0 0 0-1.41 1.41l1.06 1.06a1 1 0 0 0 1.41-1.41l-1.06-1.06zm1.06-10.96a1 1 0 0 0-1.41-1.41l-1.06 1.06a1 1 0 0 0 1.41 1.41l1.06-1.06zM7.05 18.36a1 1 0 0 0-1.41-1.41l-1.06 1.06a1 1 0 0 0 1.41 1.41l1.06-1.06z"/></symbol>
+    <symbol id="i-lang" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7 1.62-4.33L19.12 17h-3.24z"/></symbol>
+    <symbol id="i-digits" viewBox="0 0 24 24"><path d="M4 5h4v14H4zm6 0h4v14h-4zm6 0h4v14h-4z" opacity=".35"/><path d="M5 9h2v1H5zm6 0h2v1h-2zm6 0h2v1h-2zM3 11.5h18v1H3z"/></symbol>
+    <symbol id="i-delete" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5-1-1h-5l-1 1H5v2h14V4h-3.5z"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM5.92 19H5v-.92l9.06-9.06.92.92L5.92 19zM20.71 5.63l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83a1 1 0 0 0 0-1.41z"/></symbol>
+    <symbol id="i-restore" viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></symbol>
+    <symbol id="i-sweep" viewBox="0 0 24 24"><path d="M15 16h4v2h-4zm0-8h7v2h-7zm0 4h6v2h-6zM3 18c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2V8H3v10zm2-8h6v8H5v-8zm5-6H6L5 5H2v2h12V5h-3z"/></symbol>
+    <symbol id="i-gavel" viewBox="0 0 24 24"><path d="M1 21h12v2H1zM5.24 8.07l2.83-2.83 14.14 14.14-2.83 2.83zM12.32 1l5.66 5.66-2.83 2.83-5.66-5.66zM3.83 9.48l5.66 5.66-2.83 2.83L1 12.31z"/></symbol>
+    <symbol id="i-install" viewBox="0 0 24 24"><path d="M17 1.01 7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14zm-1-6h-3V8h-2v5H8l4 4 4-4z"/></symbol>
+  </svg>
+
+  <div class="app" id="app">
+    <!-- Toolbar wie in der Android-App -->
+    <header class="toolbar">
+      <button class="icon-btn" id="tb-back" type="button" hidden data-i18n-label="back">
+        <svg><use href="#i-back"/></svg>
+      </button>
+      <h1 class="toolbar-title" id="tb-title">Counter</h1>
+      <div class="toolbar-actions" id="tb-actions-main">
+        <button class="icon-btn" id="btn-save" type="button" data-i18n-label="saveResult">
+          <svg><use href="#i-save"/></svg>
+        </button>
+        <button class="icon-btn" id="btn-results" type="button" data-i18n-label="results">
+          <svg><use href="#i-list"/></svg>
+        </button>
+      </div>
+      <div class="toolbar-actions" id="tb-actions-results" hidden>
+        <button class="icon-btn" id="btn-export" type="button" data-i18n-label="exportCsv">
+          <svg><use href="#i-download"/></svg>
+        </button>
+        <button class="icon-btn" id="btn-clear-results" type="button" data-i18n-label="clearResults">
+          <svg><use href="#i-sweep"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="views">
+      <!-- ============ Zähler ============ -->
+      <section class="view" id="view-main" data-view="main">
+        <div class="counter-wrap">
+          <button class="flaps" id="flaps" type="button"></button>
+          <div class="row">
+            <button class="btn btn-count" id="btn-plus" type="button" data-i18n-label="plus">+</button>
+            <button class="btn btn-count" id="btn-minus" type="button" data-i18n-label="minus">−</button>
+          </div>
+          <div class="row">
+            <button class="btn btn-reset" id="btn-reset" type="button" data-i18n="reset">RESET</button>
+          </div>
+          <p class="hint" id="kbd-hint" data-i18n="kbdHint"></p>
+        </div>
+        <button class="fab" id="fab-settings" type="button" data-i18n-label="settings">
+          <svg><use href="#i-settings"/></svg>
+        </button>
+      </section>
+
+      <!-- ============ Zahl setzen ============ -->
+      <section class="view" id="view-set" data-view="set" hidden>
+        <form class="set-form" id="set-form" autocomplete="off">
+          <h2 class="set-title" data-i18n="setCount">Zahl setzen</h2>
+          <div class="set-inputs" id="set-inputs"></div>
+          <p class="set-help" data-i18n="setHelp"></p>
+          <div class="row">
+            <button class="btn btn-wide" type="submit" data-i18n="apply">Übernehmen</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ============ Einstellungen ============ -->
+      <section class="view view-scroll" id="view-settings" data-view="settings" hidden>
+        <div class="list">
+          <h3 class="list-header" data-i18n="secView">Ansicht</h3>
+
+          <label class="item">
+            <img class="item-icon" src="img/size.png" alt="">
+            <span class="item-text"><span class="item-title" data-i18n="seniorMode">Seniorenmodus</span>
+              <span class="item-sub" data-i18n="seniorModeSub"></span></span>
+            <input class="switch" type="checkbox" id="opt-senior">
+          </label>
+
+          <div class="item item-boxes" id="senior-options">
+            <span class="item-icon"></span>
+            <div class="item-text">
+              <span class="item-title" data-i18n="btnSize">Tastengröße</span>
+              <div class="boxes" role="radiogroup" data-setting="btnSize" data-i18n-label="btnSize">
+                <button type="button" class="box" role="radio" data-value="l" data-i18n="sizeL"></button>
+                <button type="button" class="box" role="radio" data-value="xl" data-i18n="sizeXL"></button>
+                <button type="button" class="box" role="radio" data-value="xxl" data-i18n="sizeXXL"></button>
+              </div>
+              <span class="item-title" data-i18n="fontSize">Schriftgröße der Tasten</span>
+              <div class="boxes" role="radiogroup" data-setting="fontSize" data-i18n-label="fontSize">
+                <button type="button" class="box" role="radio" data-value="l" data-i18n="sizeL"></button>
+                <button type="button" class="box" role="radio" data-value="xl" data-i18n="sizeXL"></button>
+                <button type="button" class="box" role="radio" data-value="xxl" data-i18n="sizeXXL"></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="item item-boxes">
+            <svg class="item-icon"><use href="#i-digits"/></svg>
+            <div class="item-text">
+              <span class="item-title" data-i18n="digits">Anzahl der Stellen</span>
+              <div class="boxes" role="radiogroup" data-setting="digits" data-i18n-label="digits">
+                <button type="button" class="box" role="radio" data-value="3">3</button>
+                <button type="button" class="box" role="radio" data-value="4">4</button>
+                <button type="button" class="box" role="radio" data-value="5">5</button>
+                <button type="button" class="box" role="radio" data-value="6">6</button>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="list-header" data-i18n="secControl">Bedienung</h3>
+
+          <label class="item" id="item-vibrate">
+            <svg class="item-icon"><use href="#i-vibrate"/></svg>
+            <span class="item-text"><span class="item-title" data-i18n="vibrate">Vibration</span>
+              <span class="item-sub" data-i18n="vibrateSub"></span></span>
+            <input class="switch" type="checkbox" id="opt-vibrate">
+          </label>
+          <label class="item">
+            <svg class="item-icon"><use href="#i-sound"/></svg>
+            <span class="item-text"><span class="item-title" data-i18n="sound">Klickgeräusch</span>
+              <span class="item-sub" data-i18n="soundSub"></span></span>
+            <input class="switch" type="checkbox" id="opt-sound">
+          </label>
+          <label class="item" id="item-wakelock">
+            <svg class="item-icon"><use href="#i-sun"/></svg>
+            <span class="item-text"><span class="item-title" data-i18n="wakeLock">Bildschirm anlassen</span>
+              <span class="item-sub" data-i18n="wakeLockSub"></span></span>
+            <input class="switch" type="checkbox" id="opt-wakelock">
+          </label>
+          <div class="item item-boxes">
+            <svg class="item-icon"><use href="#i-lang"/></svg>
+            <div class="item-text">
+              <span class="item-title" data-i18n="language">Sprache</span>
+              <div class="boxes" role="radiogroup" data-setting="lang" data-i18n-label="language">
+                <button type="button" class="box" role="radio" data-value="auto" data-i18n="langAuto"></button>
+                <button type="button" class="box" role="radio" data-value="de">Deutsch</button>
+                <button type="button" class="box" role="radio" data-value="en">English</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="sec-support">
+            <h3 class="list-header" data-i18n="secSupport">Unterstützen</h3>
+            <a class="item" id="link-donate" target="_blank" rel="noopener">
+              <svg class="item-icon item-icon-accent"><use href="#i-heart"/></svg>
+              <span class="item-text"><span class="item-title" data-i18n="donate">Spenden</span>
+                <span class="item-sub" data-i18n="donateSub"></span></span>
+            </a>
+          </div>
+
+          <h3 class="list-header" data-i18n="secAbout">Über Counter</h3>
+          <a class="item" href="#/info">
+            <svg class="item-icon"><use href="#i-info"/></svg>
+            <span class="item-text"><span class="item-title" data-i18n="appInfo">App-Info</span>
+              <span class="item-sub" id="settings-version"></span></span>
+          </a>
+          <a class="item" id="link-source" target="_blank" rel="noopener">
+            <img class="item-icon" src="img/os_code.png" alt="">
+            <span class="item-text"><span class="item-title" data-i18n="sourceCode">Quellcode</span>
+              <span class="item-sub" id="link-source-sub"></span></span>
+          </a>
+          <a class="item" id="link-issues" target="_blank" rel="noopener">
+            <img class="item-icon" src="img/bug.png" alt="">
+            <span class="item-text"><span class="item-title" data-i18n="reportIssue">Problem melden</span></span>
+          </a>
+          <a class="item" id="link-website" target="_blank" rel="noopener">
+            <svg class="item-icon"><use href="#i-web"/></svg>
+            <span class="item-text"><span class="item-title" data-i18n="website">Meine Website</span>
+              <span class="item-sub" id="link-website-sub"></span></span>
+          </a>
+          <button class="item" type="button" id="btn-install" hidden>
+            <svg class="item-icon"><use href="#i-install"/></svg>
+            <span class="item-text"><span class="item-title" data-i18n="install">Als App installieren</span>
+              <span class="item-sub" data-i18n="installSub"></span></span>
+          </button>
+
+          <h3 class="list-header" data-i18n="secData">Daten</h3>
+          <button class="item" type="button" id="btn-wipe">
+            <svg class="item-icon"><use href="#i-delete"/></svg>
+            <span class="item-text"><span class="item-title" data-i18n="wipe">Alle Daten löschen</span>
+              <span class="item-sub" data-i18n="wipeSub"></span></span>
+          </button>
+        </div>
+        <button class="fab" id="fab-back" type="button" data-i18n-label="back">
+          <svg><use href="#i-chevron-left"/></svg>
+        </button>
+      </section>
+
+      <!-- ============ Ergebnisse ============ -->
+      <section class="view view-scroll" id="view-results" data-view="results" hidden>
+        <ul class="results" id="results-list"></ul>
+        <div class="empty" id="results-empty">
+          <svg><use href="#i-list"/></svg>
+          <p data-i18n="noResults"></p>
+        </div>
+      </section>
+
+      <!-- ============ Info (wie bei WhatsApp/Hauk) ============ -->
+      <section class="view view-scroll" id="view-info" data-view="info" hidden>
+        <div class="info">
+          <img class="info-logo" src="img/logo.png" alt="" width="128" height="128">
+          <h2 class="info-name">Counter</h2>
+          <p class="info-version" id="info-version"></p>
+          <p class="info-tagline" data-i18n="tagline"></p>
+
+          <div class="info-card">
+            <p data-i18n="story"></p>
+          </div>
+
+          <details class="info-card">
+            <summary data-i18n="whatsNew">Was ist neu</summary>
+            <ul class="changelog" id="changelog"></ul>
+          </details>
+
+          <details class="info-card">
+            <summary data-i18n="licenses">Lizenzen</summary>
+            <p><strong>Counter</strong> – MIT License<br>Copyright © 2021–2026 byZero</p>
+            <p><strong>Roboto</strong> – Apache License 2.0<br>Copyright © Google</p>
+            <p><a href="LICENSE.txt" target="_blank" rel="noopener" data-i18n="fullLicense"></a></p>
+          </details>
+
+          <p class="info-copy">© 2021–2026 <span id="info-author">byZero</span></p>
+          <p class="info-links">
+            <a id="info-source" target="_blank" rel="noopener">GitHub</a>
+            <span id="info-imprint-wrap"> · <a id="info-imprint" target="_blank" rel="noopener" data-i18n="imprint">Impressum</a></span>
+          </p>
+          <p class="info-made" data-i18n="madeWith"></p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Snackbar (wie Material Snackbar in der App) -->
+  <div class="snackbar" id="snackbar" role="status" aria-live="polite">
+    <span id="snackbar-text"></span>
+    <button type="button" id="snackbar-action"></button>
+  </div>
+
+  <!-- Dialog -->
+  <dialog class="dialog" id="dialog">
+    <form method="dialog" id="dialog-form">
+      <h2 class="dialog-title" id="dialog-title"></h2>
+      <p class="dialog-text" id="dialog-text"></p>
+      <input class="dialog-input" id="dialog-input" type="text" maxlength="60" hidden>
+      <div class="dialog-actions">
+        <button class="text-btn" value="cancel" id="dialog-cancel" type="submit"></button>
+        <button class="text-btn text-btn-accent" value="ok" id="dialog-ok" type="submit"></button>
+      </div>
+    </form>
+  </dialog>
+
+  <noscript><p class="noscript">Counter braucht JavaScript. / Counter needs JavaScript.</p></noscript>
+</body>
+</html>
