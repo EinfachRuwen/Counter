@@ -18,7 +18,7 @@
 
 Between 2021 and 2022, byZero built a lot of things, between 13 and 14 years old and mostly by trial and error.
 Some went offline, some were never finished. **Back from Zero** brings them back:
-the original look, the original quirks, and finally the features that never got finished.
+the original look, the original quirks, and finally the features from the old idea lists.
 
 | | Project | Then | Now |
 |---|---|---|---|
