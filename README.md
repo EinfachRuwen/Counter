@@ -1,116 +1,117 @@
 <p align="center">
-  <img src="web/icons/icon-192.png" alt="Counter" width="112" height="112">
+  <img src="web/icons/icon-192.png" alt="Counter: two flip clock cards showing 1 and 4" width="112" height="112">
 </p>
 
 <h1 align="center">Counter</h1>
 
 <p align="center">
-  Ein Zähler im Rolodex-/Flip-Clock-Design.<br>
-  <sub>2021 als Android-App mit Sketchware gebaut – 2026 als Web-App zurückgeholt.</sub>
+  <b>“A counter with flip clock design.”</b><br>
+  An Android app from 2021, built with Sketchware by byZero at the age of 13. Back in 2026 as a web app.
 </p>
 
 <p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-2.0.0-616161.svg">
-  <img alt="PWA" src="https://img.shields.io/badge/PWA-offline%20%26%20installierbar-444444.svg">
-  <img alt="Ohne Build" src="https://img.shields.io/badge/build-keiner%20n%C3%B6tig-444444.svg">
-  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-F44336.svg"></a>
+  <img alt="Version 2.0" src="https://img.shields.io/badge/web-v2.0-616161?style=for-the-badge&labelColor=212121">
+  <img alt="PWA: offline and installable" src="https://img.shields.io/badge/PWA-offline%20%26%20installable-444444?style=for-the-badge&labelColor=212121">
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-F44336?style=for-the-badge&labelColor=212121"></a>
 </p>
 
 <p align="center">
-  <img src="brand/screenshots/web-classic.png" alt="Counter im klassischen Design" width="220">
+  <img src="brand/screenshots/web-classic.png" alt="Counter in the classic design" width="220">
   &nbsp;
-  <img src="brand/screenshots/web-black.png" alt="Counter im Black-Design" width="220">
+  <img src="brand/screenshots/web-black.png" alt="Counter in the Black design" width="220">
   &nbsp;
-  <img src="brand/screenshots/web-classic-settings.png" alt="Einstellungen" width="220">
+  <img src="brand/screenshots/web-classic-settings.png" alt="Counter settings" width="220">
 </p>
 
 ---
 
-## Nostalgie – Revived
+## 🔁 The Counter Revival
 
-Counter war eine meiner ersten Apps: Plus, Minus, Reset und vier Fallblatt-Ziffern, zusammengeklickt in
-[Sketchware](https://sketchware.pro/). Auf der Ideenliste standen damals noch viel mehr Sachen –
-Ergebnisse speichern, ein richtiger Seniorenmodus, eine Info-Seite wie bei WhatsApp oder Hauk, ein Spenden-Button …
-fertig geworden ist davon wenig.
+Counter is back, in your browser, in the original design: four flip cards, `+`, `−` and `RESET` on the
+same grey `#444444`. No Play Store, no APK, nothing to install (though you can, as an app).
 
-Die **Web-Edition** holt das Original-Design zurück, behebt die alten Bugs und bringt endlich die Funktionen
-mit, die ich mir damals vorgenommen hatte.
+Back then, the idea list was a lot longer than what made it into the app. The Revival finally builds it:
 
-## Funktionen
+- **Saved results.** Save the current count with a name, load it again, rename it, delete it or export everything as CSV.
+- **A real senior mode.** Pick button size and font size with checkboxes that untick each other, like the idea list said.
+  The old senior mode set the `+` and `−` text to 80sp inside 50dp buttons, so it never fit.
+- **An info page** like in WhatsApp or Hauk: logo, version, changelog, thanks and licenses.
+- **A donate button**, configured in [`web/config.js`](web/config.js).
+- **The Black version** for Tim is back as a theme ([more below](#-the-black-version)).
+- **The original Easter eggs are still in.** Count past 9999 and you get *“Did you really click for that long? :o”*,
+  go below 0 and it says *“Welcome back :D”*. The digits still cascade from left to right in 100 ms steps.
 
-- **Zählen wie früher** – Fallblatt-Animation, die Ziffern kaskadieren beim Reset wie in der App
-  (und die Easter-Eggs bei 9999 → 0 sind noch da)
-- **Ergebnisse speichern** – mit Namen sichern, wieder laden, umbenennen, löschen, als CSV exportieren
-- **Seniorenmodus** – Tastengröße und Schriftgröße per Kästchen wählbar, die sich gegenseitig abwählen
-- **Black-Design** – die Sonderversion für Tim von 2022, jetzt zum Umschalten ([mehr dazu](#-die-black-version))
-- **3 bis 6 Stellen**, Taste gedrückt halten zum schnellen Zählen, Tastatur-Steuerung
-- **Vibration, Klickgeräusch** und „Bildschirm anlassen“ beim Zählen
-- **App-Info-Seite** mit Changelog, Danksagungen und Lizenzen, optionaler **Spenden-Button**
-- **Offline-fähig & installierbar** als App auf Handy und Desktop
-- **Deutsch & English**, automatisch nach Browsersprache
-- **Datenschutzfreundlich** – keine Tracker, keine externen Dienste, Schrift lokal; alles bleibt im Browser
+Plus a few things that weren’t even on the list: a real split-flap animation, 3 to 6 digits, hold a button to count fast,
+keyboard controls, vibration, a click sound, “keep screen on”, offline support, German and English.
+No trackers and no external services. The Roboto font ships with the app, and everything stays in your browser.
 
-## Web-Version veröffentlichen
+### Bugs from 2021, fixed
 
-Die Web-App liegt komplett in [`web/`](web) – reines HTML/CSS/JS, kein Build-Schritt.
+| Bug | What happened |
+|---|---|
+| Reset and overflow didn’t save correctly | The state was saved *before* the cascading animation had set the digits, so the old value came back after a restart. |
+| “Set count” could crash the app | Empty, negative or multi-digit input went straight into `Double.parseDouble()`. |
+| Back stacked screens forever | Settings and “Set count” started a new main screen instead of going back. |
+| Toast on every start | *“Loaded the state from the local storage”* popped up every time you opened the app. |
+| Wrong version | The settings said `v1.1`, long after `v1.5` was out. |
 
-**Cloudflare Pages:** *Workers & Pages → Create → Pages → Connect to Git* → dieses Repo →
-Production branch `main`, Build command leer, **Build output directory `web`**.
-Jeder Push auf `main` geht dann automatisch online.
+## 📖 The story
 
-Links (Spenden, Website, Impressum) werden in [`web/config.js`](web/config.js) eingestellt.
-Mehr Details stehen in [`web/README.md`](web/README.md).
+| When | What happened |
+|---|---|
+| **18 Oct 2021** | *Initial commit.* **v1.0** and **v1.1** on the same day: count, reset and a flip clock design built from Sketchware blocks. A small site on `counter.byzero.dev` links to the source and the APK. |
+| **20 Oct 2021** | **v1.2:** *“Counter – Update – Set Number”*. Tap the digits to set the count yourself. |
+| **27 Oct 2021** | [ImgBot](https://imgbot.net) shrinks the images ([pull request 2](https://github.com/EinfachRuwen/Counter/pull/2)). |
+| **31 Jan 2022** | **v1.3, the Black version:** *“Adding a Black Version for Tim”*. [Tim Trayler](https://github.com/TimTrayler) adds the black status bar ([pull request 3](https://github.com/EinfachRuwen/Counter/pull/3)). |
+| **2 Apr 2022** | **v1.4:** [IzzySoft](https://github.com/IzzySoft) adds the fastlane metadata for F-Droid and IzzyOnDroid ([pull request 5](https://github.com/EinfachRuwen/Counter/pull/5)). |
+| **27 Apr 2022** | **v1.5**, the last Android release. |
+| **Nov 2026** | **The Revival.** Counter runs again, this time in the browser. |
 
-Lokal ausprobieren:
+## 🖤 The Black version
+
+In January 2022, Counter got a special all-black version for **[Tim Trayler](https://github.com/TimTrayler)**
+(tag `BLACK`, branch [`black`](../../tree/black)). Tim sent the black status bar himself.
+The Revival brings it back under *Settings → Design → Black (Tim edition)*, with the exact colors from the branch:
+`#000000` background, `#373737` buttons and `#101010` settings. Thanks, Tim!
+
+## 🌐 Run it yourself
+
+The web app lives in [`web/`](web). It is plain HTML, CSS and JavaScript, with no build step and no dependencies.
 
 ```bash
-cd web && python3 -m http.server 8000
+python3 -m http.server -d web
 ```
 
-## 🖤 Die Black-Version
+Then open `http://localhost:8000`.
 
-Anfang 2022 ist für **[Tim Trayler](https://github.com/TimTrayler)** eine komplett schwarze Sonderversion
-entstanden (Tag `BLACK`, Branch [`black`](../../tree/black)) – Tim hat dafür auch selbst die schwarze
-Statusleiste beigesteuert. In der Web-Edition ist sie jetzt unter *Einstellungen → Design → Black (Tim-Edition)*
-mit denselben Farben wieder da. Danke, Tim!
+**Cloudflare Pages:** connect this repository, set the production branch to `main`, leave the build command empty
+and set the **build output directory to `web`**. Every push to `main` goes live. The old short links from the app
+(`/github`, `/issue`, `/download`) keep working through [`web/_redirects`](web/_redirects).
+More in [`web/README.md`](web/README.md).
 
-## 🔁 Back from Zero
+## 🗂 What’s in this repository
 
-Counter ist Teil von **Back from Zero** – meinem Projekt, alte Sachen aus der *byZero*-Zeit
-wieder zum Laufen zu bringen: aufräumen, Bugs fixen, modernisieren, und endlich fertig bauen,
-was damals liegen geblieben ist.
+| Path | Content |
+|---|---|
+| [`web/`](web) | The Revival: the web app, deployed on Cloudflare Pages |
+| [`src/`](src) | The original Android app, exported from Sketchware (2021–2022) |
+| [`fastlane/`](fastlane) | Store texts and screenshots of the Android app (F-Droid / IzzyOnDroid) |
+| [`brand/`](brand) | Logo, banner and screenshots |
+| Branch [`black`](../../tree/black) | The Black version for Tim (v1.3) |
 
-| Projekt | Status |
-| --- | --- |
-| **[Counter](https://github.com/EinfachRuwen/Counter)** | ✅ zurück – als Web-App im Original-Design |
-| **[ZeroBot](https://github.com/EinfachRuwen/ZeroBot)** | 🔧 in Arbeit |
-| **[WebsiteGenerator](https://github.com/WebsiteGenerator/WebsiteGenerator)** | 🔧 in Arbeit |
+Old APKs are on the [releases page](../../releases).
 
-## Die Original-App (Android)
+## ✨ Back from Zero
 
-Der Sketchware-Quellcode der Android-App liegt unverändert in [`src/`](src), die Store-Texte und
-Screenshots in [`fastlane/`](fastlane). Alte APKs gibt es unter [Releases](../../releases).
+Counter is one of the old byZero projects that are getting switched back on:
 
-## Projektstruktur
+| Project | From | Revival |
+|---|---|---|
+| **[ZeroBot](https://github.com/EinfachRuwen/ZeroBot)** 🍩 | A Discord bot from 2021 | A playable time capsule at [zerobot.by0.link](https://zerobot.by0.link) |
+| **[WebsiteGenerator](https://github.com/WebsiteGenerator/WebsiteGenerator)** | A Python terminal generator for personal websites | A [web version](https://websitegenerator.github.io/WebsiteGenerator/) that runs in your browser |
+| **Counter** | An Android app built with Sketchware (2021) | The web app in this repository |
 
-```
-web/        Web-Edition (wird veröffentlicht)
-src/        Android-App (Sketchware-Export, 2021–2022)
-brand/      Logos, Banner, Screenshots
-fastlane/   Store-Metadaten der Android-App (F-Droid / IzzyOnDroid)
-```
+## 📝 License
 
-## Danke
-
-- **[Tim Trayler](https://github.com/TimTrayler)** – Black-Version und schwarze Statusleiste
-- **[IzzySoft](https://github.com/IzzySoft)** – fastlane-Struktur für F-Droid / IzzyOnDroid
-- **[ImgBot](https://imgbot.net/)** – Bildoptimierung
-
-## Mitmachen
-
-Ideen, Bugs und Feature-Wünsche gerne als [Issue](../../issues). Wenn dir Counter gefällt, lass einen ⭐ da.
-
-## Lizenz
-
-Copyright © 2021–2026 byZero · [MIT](LICENSE)<br>
-Schrift Roboto: Apache License 2.0
+Copyright © 2021–2026 [byZero](https://github.com/EinfachRuwen).
+This project is licensed under the [MIT License](LICENSE). The Roboto font is licensed under the Apache License 2.0.
