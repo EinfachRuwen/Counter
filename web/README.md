@@ -3,16 +3,18 @@
 Die Android-App *Counter* (2021, gebaut mit Sketchware) als Web-App – gleiches Flip-Clock-Design,
 plus die Funktionen von der alten Ideenliste.
 
-## Veröffentlichen auf Cloudflare Pages
+## Veröffentlichen auf Cloudflare Pages (über GitHub)
 
-**Variante A – ZIP hochladen:** Cloudflare Dashboard → *Workers & Pages* → *Create* → *Pages* →
-*Upload assets* → den **Inhalt** dieses Ordners (bzw. die ZIP) hochladen.
-
-**Variante B – mit GitHub verbinden:** *Connect to Git* → dieses Repo wählen →
-Framework preset: *None*, Build command: leer, **Build output directory: `web`**.
-Danach wird jeder Push automatisch veröffentlicht.
-
-Eigene Domain (z. B. `counter.byzero.dev`) unter *Custom domains* eintragen.
+1. Cloudflare Dashboard → *Workers & Pages* → *Create* → *Pages* → **Connect to Git**
+2. Repo `EinfachRuwen/Counter` wählen
+3. Einstellungen:
+   - **Production branch:** `main`
+   - **Framework preset:** None
+   - **Build command:** *(leer lassen)*
+   - **Build output directory:** `web`
+4. *Save and Deploy* – danach geht jeder Push auf `main` automatisch online,
+   andere Branches bekommen eine eigene Vorschau-URL.
+5. Eigene Domain (z. B. `counter.byzero.dev`) unter *Custom domains* eintragen.
 
 ## Anpassen
 

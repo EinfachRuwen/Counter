@@ -12,7 +12,7 @@
 > The name explains everything, that you need to know.
 
 ## Web-Version 🌐
-Counter gibt es jetzt auch im Browser – im gleichen Flip-Clock-Design, mit gespeicherten Ergebnissen, Seniorenmodus und Offline-Unterstützung. Quellcode und Anleitung für Cloudflare Pages: [`web/`](./web).
+Counter gibt es jetzt auch im Browser – im gleichen Flip-Clock-Design, mit gespeicherten Ergebnissen, Seniorenmodus und Offline-Unterstützung. Quellcode und Anleitung für Cloudflare Pages: [`web/`](./web). Logos und Grafiken liegen in [`brand/`](./brand).
 
 ## Install
 ### Play Store
