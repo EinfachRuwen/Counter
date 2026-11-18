@@ -18,7 +18,8 @@ plus die Funktionen von der alten Ideenliste.
 
 ## Anpassen
 
-- **`config.js`** – Links: Spenden (`donateUrl`, leer = ausgeblendet), Quellcode, Issues, Website, Impressum.
+- **`config.js`** – Links: Spenden (`donateUrl`, leer = ausgeblendet), Quellcode, Issues, Website, Impressum (`imprintUrl`), Datenschutz (`privacyUrl`).
+- **`datenschutz/index.html`** – Datenschutzerklärung (`/datenschutz/`). Technische Doku dazu: `../docs/PRIVACY-TECHNICAL.md`; bei datenschutzrelevanten Änderungen beide anpassen (siehe `../CLAUDE.md`).
 - **`sw.js`** – nach Änderungen an Dateien `CACHE`-Version erhöhen, damit installierte Apps das Update bekommen.
 - **`_redirects`** – alte Kurzlinks (`/github`, `/issue`, `/download`) aus der Android-App.
 - **`_headers`** – Sicherheits- und Cache-Header.

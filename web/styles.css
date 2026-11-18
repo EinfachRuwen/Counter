@@ -214,6 +214,16 @@ a { color: inherit; }
 .hint { margin: 8px 0 0; color: var(--text-3); font-size: 12px; text-align: center; opacity: .8; }
 @media (hover: none) { .hint { display: none; } }
 
+/* Impressum/Datenschutz auf dem Zähler – klein, unten links, gegenüber dem FAB */
+.legal-links {
+  position: absolute; z-index: 1;
+  left: max(16px, env(safe-area-inset-left)); bottom: max(16px, env(safe-area-inset-bottom));
+  display: flex; gap: 2px; align-items: center;
+  min-height: 56px; font-size: 12px;
+}
+.legal-links a { color: var(--text-3); opacity: .75; text-decoration: none; padding: 10px 8px; border-radius: 4px; }
+.legal-links a:hover, .legal-links a:focus-visible { opacity: 1; text-decoration: underline; }
+
 /* FAB */
 .fab {
   position: fixed; z-index: 9;
@@ -398,6 +408,25 @@ body.has-fab .snackbar.is-visible { transform: translate(-50%, calc(-56px - 12px
 .text-btn { border: 0; background: none; padding: 10px 12px; border-radius: 4px; font-weight: 500; text-transform: uppercase; letter-spacing: .04em; font-size: 14px; cursor: pointer; color: var(--text-2); }
 .text-btn:hover { background: var(--ripple); }
 .text-btn-accent { color: #FF8A80; }
+
+/* ---------- Datenschutzseite (datenschutz/index.html) ---------- */
+.page-legal .toolbar .icon-btn { color: inherit; }
+.toolbar-title-back { margin-left: 20px; }
+.view.legal { padding-bottom: 48px; }
+.legal-doc { max-width: 720px; width: 100%; margin: 0 auto; padding: 16px 16px 0; }
+.legal-kicker { margin: 8px 0 4px; color: var(--text-3); font-size: 13px; }
+.legal-title { margin: 0 0 10px; font-size: 26px; font-weight: 500; overflow-wrap: anywhere; hyphens: auto; }
+.legal-lede { margin: 0 0 8px; color: var(--text-2); line-height: 1.55; font-size: 15px; }
+.legal-doc .list-header { margin: 22px 0 6px; padding: 0; }
+.legal-doc .info-card { overflow-wrap: anywhere; }
+.legal-doc .info-card ul { margin: 0 0 8px; padding-left: 20px; }
+.legal-doc .info-card li { margin: 2px 0; }
+.legal-doc .info-card li:last-child, .legal-doc .info-card ul:last-child { margin-bottom: 0; }
+.legal-doc address { font-style: normal; margin: 0 0 10px; color: #fff; }
+.legal-doc code { font-size: 13px; background: rgba(0,0,0,.2); padding: 1px 4px; border-radius: 3px; }
+.legal-callout { border-left: 3px solid var(--accent); }
+.legal-callout-label { color: #fff; font-weight: 500; }
+.legal-foot { margin: 28px 0 0; text-align: center; }
 
 .noscript { padding: 24px; text-align: center; }
 

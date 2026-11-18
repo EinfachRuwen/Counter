@@ -15,5 +15,7 @@ window.COUNTER_CONFIG = {
   // "Back from Zero" – Übersicht deiner wiederbelebten Projekte (leer = nur Text)
   revivalUrl: "https://bf0.by0.link",
 
-  imprintUrl: "https://byzero.dev/imprint"
+  imprintUrl: "https://fcrw.cc/imprint",
+  // Eigene Datenschutzerklärung (liegt in web/datenschutz/index.html)
+  privacyUrl: "/datenschutz/"
 };

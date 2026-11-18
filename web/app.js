@@ -9,7 +9,7 @@
   const VERSION = "2.0.0";
   const STORAGE_KEY = "counter.web.v2";
   const CONFIG = Object.assign({
-    author: "byZero", donateUrl: "", revivalUrl: "", sourceUrl: "", issuesUrl: "", websiteUrl: "", imprintUrl: ""
+    author: "byZero", donateUrl: "", revivalUrl: "", sourceUrl: "", issuesUrl: "", websiteUrl: "", imprintUrl: "", privacyUrl: ""
   }, window.COUNTER_CONFIG || {});
 
   const $ = (sel, root = document) => root.querySelector(sel);
@@ -45,7 +45,8 @@
       noResults: "Noch keine Ergebnisse gespeichert. Tippe auf dem Zähler oben auf das Lesezeichen, um den aktuellen Stand zu sichern.",
       tagline: "Ein Zähler im Rolodex-Design · Web-Edition",
       story: "Counter entstand 2021 als Android-App – gebaut mit Sketchware. Diese Web-Version holt das Original-Design zurück und bringt endlich die Funktionen mit, die damals auf der Ideenliste standen.",
-      whatsNew: "Was ist neu", licenses: "Lizenzen", fullLicense: "Vollständigen Lizenztext anzeigen", imprint: "Impressum",
+      whatsNew: "Was ist neu", licenses: "Lizenzen", fullLicense: "Vollständigen Lizenztext anzeigen", imprint: "Impressum", privacy: "Datenschutz",
+      privacySub: "Welche Daten anfallen – und welche nicht",
       madeWith: "Mit ❤️ gezählt – Nostalgie, revived.",
       versionWeb: (v) => `Version ${v} (Web)`,
       overflow: "Hast du wirklich so lange geklickt? :o",
@@ -115,7 +116,8 @@
       noResults: "No results saved yet. Tap the bookmark at the top of the counter to save the current count.",
       tagline: "A counter with flip clock design · Web edition",
       story: "Counter started in 2021 as an Android app built with Sketchware. This web version brings back the original design – plus the features that were on the idea list back then.",
-      whatsNew: "What's new", licenses: "Licenses", fullLicense: "Show full license text", imprint: "Imprint",
+      whatsNew: "What's new", licenses: "Licenses", fullLicense: "Show full license text", imprint: "Imprint", privacy: "Privacy (German)",
+      privacySub: "Which data is processed – and which is not",
       madeWith: "Counted with ❤️ – nostalgia, revived.",
       versionWeb: (v) => `Version ${v} (Web)`,
       overflow: "Did you really click for that long? :o",
@@ -752,6 +754,16 @@
     link("#info-source", CONFIG.sourceUrl);
     $("#info-imprint-wrap").hidden = !CONFIG.imprintUrl;
     if (CONFIG.imprintUrl) $("#info-imprint").href = CONFIG.imprintUrl;
+    $("#info-privacy-wrap").hidden = !CONFIG.privacyUrl;
+    if (CONFIG.privacyUrl) $("#info-privacy").href = CONFIG.privacyUrl;
+    link("#link-imprint", CONFIG.imprintUrl);
+    link("#link-privacy", CONFIG.privacyUrl);
+    // Rechtliche Links auf dem Zähler (klein, unten links)
+    $("#legal-imprint").hidden = !CONFIG.imprintUrl;
+    if (CONFIG.imprintUrl) $("#legal-imprint").href = CONFIG.imprintUrl;
+    $("#legal-privacy").hidden = !CONFIG.privacyUrl;
+    if (CONFIG.privacyUrl) $("#legal-privacy").href = CONFIG.privacyUrl;
+    $("#legal-links").hidden = !CONFIG.imprintUrl && !CONFIG.privacyUrl;
     $("#info-author").textContent = CONFIG.author;
     if (CONFIG.revivalUrl) $("#info-revival").href = CONFIG.revivalUrl; else $("#info-revival").removeAttribute("href");
     if (!navigator.vibrate) $("#item-vibrate").hidden = true;
