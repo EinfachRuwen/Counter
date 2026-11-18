@@ -43,6 +43,7 @@
     <symbol id="i-download" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></symbol>
     <symbol id="i-sweep" viewBox="0 0 24 24"><path d="M15 16h4v2h-4zm0-8h7v2h-7zm0 4h6v2h-6zM3 18c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2V8H3v10zm2-8h6v8H5v-8zm5-6H6L5 5H2v2h12V5h-3z"/></symbol>
     <symbol id="i-gavel" viewBox="0 0 24 24"><path d="M1 21h12v2H1zM5.24 8.07l2.83-2.83 14.14 14.14-2.83 2.83zM12.32 1l5.66 5.66-2.83 2.83-5.66-5.66zM3.83 9.48l5.66 5.66-2.83 2.83L1 12.31z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm7 10c0 4.52-2.98 8.69-7 9.93-4.02-1.24-7-5.41-7-9.93V6.3l7-3.11 7 3.11V11zm-11.59.59L6 13l4 4 8-8-1.41-1.42L10 14.17z"/></symbol>
     <symbol id="i-install" viewBox="0 0 24 24"><path d="M17 1.01 7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14zm-1-6h-3V8h-2v5H8l4 4 4-4z"/></symbol>
   </svg>
 
@@ -85,6 +86,10 @@
           </div>
           <p class="hint" id="kbd-hint" data-i18n="kbdHint"></p>
         </div>
+        <nav class="legal-links" id="legal-links" aria-label="Rechtliches">
+          <a id="legal-imprint" target="_blank" rel="noopener" data-i18n="imprint">Impressum</a>
+          <a id="legal-privacy" data-i18n="privacy">Datenschutz</a>
+        </nav>
         <button class="fab" id="fab-settings" type="button" data-i18n-label="settings">
           <svg><use href="#i-settings"/></svg>
         </button>
@@ -217,6 +222,15 @@
             <span class="item-text"><span class="item-title" data-i18n="website">Meine Website</span>
               <span class="item-sub" id="link-website-sub"></span></span>
           </a>
+          <a class="item" id="link-imprint" target="_blank" rel="noopener">
+            <svg class="item-icon"><use href="#i-gavel"/></svg>
+            <span class="item-text"><span class="item-title" data-i18n="imprint">Impressum</span></span>
+          </a>
+          <a class="item" id="link-privacy">
+            <svg class="item-icon"><use href="#i-shield"/></svg>
+            <span class="item-text"><span class="item-title" data-i18n="privacy">Datenschutz</span>
+              <span class="item-sub" data-i18n="privacySub"></span></span>
+          </a>
           <button class="item" type="button" id="btn-install" hidden>
             <svg class="item-icon"><use href="#i-install"/></svg>
             <span class="item-text"><span class="item-title" data-i18n="install">Als App installieren</span>
@@ -277,6 +291,7 @@
           <p class="info-links">
             <a id="info-source" target="_blank" rel="noopener">GitHub</a>
             <span id="info-imprint-wrap"> · <a id="info-imprint" target="_blank" rel="noopener" data-i18n="imprint">Impressum</a></span>
+            <span id="info-privacy-wrap"> · <a id="info-privacy" data-i18n="privacy">Datenschutz</a></span>
           </p>
           <p class="info-made" data-i18n="madeWith"></p>
           <p class="info-made"><a id="info-revival" target="_blank" rel="noopener" data-i18n="revival"></a></p>

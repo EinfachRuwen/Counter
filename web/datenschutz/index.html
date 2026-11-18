@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Datenschutz · Counter</title>
+  <meta name="description" content="Datenschutzerklärung für Counter (counter.bf0.by0.link), die Web-Edition des Flip-Clock-Zählers.">
+  <meta name="author" content="Ruwen Hohnholz">
+  <meta name="theme-color" content="#444444">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="../favicon.ico" sizes="32x32">
+  <link rel="icon" href="../icons/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-legal">
+  <svg width="0" height="0" class="sprite" aria-hidden="true">
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></symbol>
+  </svg>
+
+  <div class="app">
+    <header class="toolbar">
+      <a class="icon-btn" href="../" aria-label="Zurück zum Counter"><svg><use href="#i-back"/></svg></a>
+      <h1 class="toolbar-title toolbar-title-back">Datenschutz</h1>
+    </header>
+
+    <main class="view view-scroll legal" id="inhalt">
+      <div class="legal-doc">
+        <p class="legal-kicker">Stand: 18. November 2026</p>
+        <h2 class="legal-title">Datenschutz&shy;erklärung</h2>
+        <p class="legal-lede">Counter ist ein Zähler, der komplett in deinem Browser läuft. Es gibt kein Konto, keine Cookies, keine Statistik und keine Inhalte von fremden Servern. Dein Zählerstand und deine Ergebnisse bleiben auf deinem Gerät. Beim Aufruf fallen trotzdem technische Daten an. Welche das sind, steht hier.</p>
+
+        <h3 class="list-header" id="s1">1. Verantwortlicher und Geltungsbereich</h3>
+        <div class="info-card">
+          <address>
+            Ruwen Hohnholz<br>
+            c/o Autorenglück #45094<br>
+            Albert-Einstein-Str. 47<br>
+            02977 Hoyerswerda<br>
+            E-Mail: <a href="mailto:info@focusonruwen.com">info@focusonruwen.com</a>
+          </address>
+          <p>Diese Datenschutzerklärung gilt für die Web-App Counter unter counter.bf0.by0.link, einschließlich dieser Seite. Counter ist ein privates, nicht kommerzielles Projekt. Einen Datenschutzbeauftragten habe ich nicht benannt.</p>
+        </div>
+
+        <h3 class="list-header" id="s2">2. Hosting bei Vercel und Server-Logs</h3>
+        <div class="info-card">
+          <p>Counter liegt bei Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA. Wenn du Counter aufrufst oder die installierte App im Hintergrund nach Updates sucht, verarbeitet Vercel technisch notwendige Daten, um die Dateien an deinen Browser auszuliefern und den Betrieb abzusichern:</p>
+          <ul>
+            <li>IP-Adresse und daraus abgeleitetes Land bzw. ungefährer Ort</li>
+            <li>Datum und Uhrzeit des Abrufs</li>
+            <li>aufgerufene Adresse (Pfad), Statuscode und übertragene Datenmenge</li>
+            <li>verweisende Seite (Referrer)</li>
+            <li>Browser und Betriebssystem (User-Agent)</li>
+          </ul>
+          <p>Das gilt auch für die Weiterleitung von http:// auf https://, die ebenfalls Vercel ausführt. Was du in Counter zählst, speicherst oder einstellst, ist in diesen Daten nicht enthalten.</p>
+          <p><strong>Rechtsgrundlage</strong> ist mein berechtigtes Interesse, Counter zuverlässig und sicher auszuliefern (Art. 6 Abs. 1 lit. f DSGVO).</p>
+          <p><strong>Speicherdauer:</strong> In meinem Vercel-Konto sind Protokolle je nach Tarif nur kurz einsehbar, zwischen einer Stunde und einem Tag. Wie lange Vercel selbst Protokolle aufbewahrt, legt Vercel fest; nach eigenen Angaben nur so lange, wie es für den Betrieb, die Sicherheit und gesetzliche Pflichten nötig ist. Ich werte keine Protokolle aus und führe sie nicht mit anderen Daten zusammen.</p>
+          <p><strong>Übermittlung in die USA:</strong> Vercel kann die Daten in den USA und auf Servern weltweit verarbeiten. Vercel ist unter dem EU-US Data Privacy Framework zertifiziert; die Übermittlung stützt sich auf den Angemessenheitsbeschluss der EU-Kommission (Art. 45 DSGVO). Mehr dazu im <a href="https://vercel.com/legal/privacy-notice" target="_blank" rel="noopener">Datenschutzhinweis von Vercel</a>.</p>
+        </div>
+
+        <h3 class="list-header" id="s3">3. Speicher in deinem Browser</h3>
+        <div class="info-card">
+          <p>Counter setzt keine Cookies. Damit dein Zählerstand nach dem Schließen nicht verloren geht, speichert Counter im lokalen Speicher deines Browsers (<code>localStorage</code>, Schlüssel <code>counter.web.v2</code>):</p>
+          <ul>
+            <li>den aktuellen Zählerstand und die Anzahl der Stellen,</li>
+            <li>deine Einstellungen: Design, Seniorenmodus, Tasten- und Schriftgröße, Vibration, Klickgeräusch, „Bildschirm anlassen“ und Sprache,</li>
+            <li>gespeicherte Ergebnisse mit Wert, dem Namen, den du ihnen gibst, und dem Zeitpunkt des Speicherns.</li>
+          </ul>
+          <p>Außerdem legt Counter über einen Service Worker eine Kopie der App-Dateien (Seiten, Skripte, Schrift, Bilder) im Cache-Speicher deines Browsers ab, damit Counter auch offline startet. Darin stehen keine Angaben über dich.</p>
+          <p>Diese Daten verlassen dein Gerät nicht; ich kann sie nicht einsehen. Das Speichern ist ohne Einwilligung zulässig, weil es unbedingt erforderlich ist, um dir die Funktionen bereitzustellen, die du ausdrücklich nutzt: einen Zähler, der seinen Stand behält, deine Einstellungen und die Offline-Nutzung (§ 25 Abs. 2 Nr. 2 TDDDG).</p>
+          <p><strong>Löschen:</strong> In den Einstellungen unter „Alle Daten löschen“ entfernst du Zählerstand, Ergebnisse und Einstellungen. Den Offline-Cache entfernst du, indem du die Website-Daten für counter.bf0.by0.link in deinem Browser löschst; dabei verschwindet auch alles andere. Ohne dein Zutun bleiben die Daten, bis du sie löschst.</p>
+        </div>
+
+        <h3 class="list-header" id="s4">4. Was Counter auf deinem Gerät nutzt</h3>
+        <div class="info-card">
+          <p>Ohne Einstellung richtet sich die Sprache nach der Spracheinstellung deines Browsers; sie wird nur auf deinem Gerät ausgewertet. Je nach deinen Einstellungen nutzt Counter die Vibration deines Geräts, erzeugt das Klickgeräusch im Browser und hält auf Wunsch den Bildschirm an. Der CSV-Export deiner Ergebnisse entsteht direkt in deinem Browser und wird als Datei heruntergeladen. Installierst du Counter als App, läuft das über die Funktion deines Browsers bzw. Betriebssystems. Nichts davon wird an mich oder Dritte übertragen.</p>
+        </div>
+
+        <h3 class="list-header" id="s5">5. Keine Statistik, keine fremden Inhalte</h3>
+        <div class="info-card">
+          <p>In Counter gibt es keine Reichweitenmessung, kein Tracking, keine Werbung und keine eingebetteten Inhalte Dritter. Die Schrift Roboto liegt auf demselben Server wie Counter; dein Browser stellt dafür keine Verbindung zu anderen Anbietern her.</p>
+        </div>
+
+        <h3 class="list-header" id="s6">6. Links zu anderen Seiten</h3>
+        <div class="info-card">
+          <p>Counter verlinkt auf GitHub (Quellcode, „Problem melden“, Profilseite), auf die Projektübersicht „Back from Zero“ (bf0.by0.link), auf das Impressum und auf den Datenschutzhinweis von Vercel. Erst wenn du einen Link anklickst, ruft dein Browser die Zielseite auf; dort gilt deren Datenschutzerklärung. Dein Browser übermittelt dabei in der Regel nur die Domain von Counter als Herkunft. Wenn du über GitHub ein Problem meldest, ist dein Beitrag dort öffentlich sichtbar.</p>
+        </div>
+
+        <h3 class="list-header" id="s7">7. Android-App (alte Version)</h3>
+        <div class="info-card">
+          <p>Die ursprüngliche Android-App von Counter (bis Version 1.2) gibt es weiterhin auf GitHub und im IzzyOnDroid-Repository. Sie fordert keine Berechtigungen an, auch keinen Internetzugriff, und speichert Zählerstand und Einstellungen nur auf deinem Gerät. Links in der App öffnen deinen Browser. Ob Android diese Daten in deine Gerätesicherung aufnimmt, hängt von deinen Backup-Einstellungen ab. Beim Herunterladen verarbeiten GitHub bzw. IzzyOnDroid Daten nach ihren eigenen Datenschutzerklärungen.</p>
+        </div>
+
+        <h3 class="list-header" id="s8">8. Kontakt per E-Mail</h3>
+        <div class="info-card">
+          <p>Wenn du mir schreibst, verarbeite ich deine E-Mail-Adresse und deine Nachricht, um dir zu antworten (Art. 6 Abs. 1 lit. f DSGVO). Ich lösche sie, wenn die Anfrage erledigt ist und keine Aufbewahrungsgründe bestehen.</p>
+        </div>
+
+        <h3 class="list-header" id="s9">9. Deine Rechte</h3>
+        <div class="info-card">
+          <p>Du hast das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18) und Datenübertragbarkeit (Art. 20). Eine formlose E-Mail an <a href="mailto:info@focusonruwen.com">info@focusonruwen.com</a> genügt.</p>
+        </div>
+        <div class="info-card legal-callout">
+          <p class="legal-callout-label">Widerspruchsrecht nach Art. 21 DSGVO</p>
+          <p>Soweit ich Daten auf Grundlage berechtigter Interessen verarbeite (Art. 6 Abs. 1 lit. f DSGVO), kannst du dieser Verarbeitung aus Gründen, die sich aus deiner besonderen Situation ergeben, jederzeit widersprechen. Ich verarbeite die Daten dann nicht mehr, es sei denn, ich kann zwingende schutzwürdige Gründe nachweisen, die deine Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.</p>
+        </div>
+        <div class="info-card">
+          <p>Außerdem kannst du dich bei einer Datenschutz-Aufsichtsbehörde beschweren, insbesondere in dem Mitgliedstaat deines Aufenthaltsorts, deines Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes (Art. 77 DSGVO).</p>
+        </div>
+
+        <h3 class="list-header" id="s10">10. Pflicht zur Bereitstellung, automatisierte Entscheidungen</h3>
+        <div class="info-card">
+          <p>Du bist nicht verpflichtet, Daten bereitzustellen. Ohne die Übertragung deiner IP-Adresse kann dein Browser Counter aber technisch nicht laden. Eine automatisierte Entscheidungsfindung einschließlich Profiling (Art. 22 DSGVO) findet nicht statt.</p>
+        </div>
+
+        <h3 class="list-header" id="s11">11. Änderungen</h3>
+        <div class="info-card">
+          <p>Ich passe diese Erklärung an, wenn sich Counter oder das Hosting ändert. Es gilt die hier veröffentlichte Fassung.</p>
+        </div>
+
+        <nav class="info-links legal-foot" aria-label="Rechtliches">
+          <a href="../">Zurück zum Counter</a> · <a href="https://fcrw.cc/imprint" target="_blank" rel="noopener">Impressum</a> · <a href="./" aria-current="page">Datenschutz</a>
+        </nav>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
